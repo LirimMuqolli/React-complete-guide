@@ -1,11 +1,12 @@
 import React from 'react';
 import './ExpenseItem.css'
+import ExpenseDate from '../expenseDate/ExpenseDate';
 
 interface ExpenseDataObjectProps {
   id: number;
   title: string;
   amount: number;
-  date: any;
+  date: Date;
 }
 
 interface ExpenseData {
@@ -13,11 +14,21 @@ interface ExpenseData {
 }
 
 const ExpenseItem: React.FC<ExpenseData> = ({ expenseData }) => {
+  const formatDate = (date: Date) => {
+    const options: Intl.DateTimeFormatOptions = {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    };
+    return date.toLocaleDateString(undefined, options);
+  };
+
   return (
     <div className='expense-item-container'>
       {expenseData.map((expense) => (
         <div key={expense.id} className='expense-item'>
-          <div className='expense-date'>{expense.date.toDateString()}</div>
+          <ExpenseDate  date={expense.date} />
+       
           <div className='expense-item_description'>
             <h2>{expense.title}</h2>
           </div>
