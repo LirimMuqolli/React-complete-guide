@@ -1,21 +1,20 @@
-import React from 'react'
+import React from "react";
 
-  interface expenseDateProps {
-    date:Date;
-  }
+interface expenseDateProps {
+  date: Date;
+}
 
 const ExpenseDate = ({ date }: expenseDateProps) => {
-    const formatDate = (date: Date) => {
-      const options: Intl.DateTimeFormatOptions = {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-      };
-      return date.toLocaleDateString(undefined, options);
+  const formatDate = (date: Date) => {
+    const options: Intl.DateTimeFormatOptions = {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     };
-  
-    return <div className='expense-date'>{formatDate(date)}</div>;
+    return date.toLocaleDateString(undefined, options);
   };
-  
 
-export default ExpenseDate
+  return <div className="expense-date">{formatDate(date)}</div>;
+};
+
+export default ExpenseDate;
