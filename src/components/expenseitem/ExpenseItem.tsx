@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./ExpenseItem.css";
 import ExpenseDate from "../expenseDate/ExpenseDate";
+import ExpenseFilter from "../expenseFilter/ExpenseFilter";
 
 interface ExpenseDataObjectProps {
   id: number;
@@ -34,9 +35,14 @@ const ExpenseItem: React.FC<ExpenseData> = ({ expenseData }) => {
       setExpenseData(updatedExpenses);
     }
   };
+  const [filteredYear,setFilteredYear] = useState('2020');
+  const filterChangeHandler = (selectedYear:any) => {
+    setFilteredYear(selectedYear)
+  }
 
   return (
     <div className="expense-item-container">
+      <ExpenseFilter selected={filteredYear} onChangeFilter={filterChangeHandler} />
       {expenseData.map((expense) => (
         <div key={expense.id} className="expense-item">
           <ExpenseDate date={expense.date} />

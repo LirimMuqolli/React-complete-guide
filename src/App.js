@@ -15,6 +15,7 @@ function App() {
     <div className='App'>
       <h2>Let`s get started!</h2>
       <NewExpense onAddExpense={addExpenseHandler} />
+      
       <ExpenseItem expenseData={expenseData} />
 
     </div>

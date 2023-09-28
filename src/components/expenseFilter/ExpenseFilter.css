@@ -1,0 +1,31 @@
+.expenses-filter-select {
+    outline: none;
+    margin-left: auto;
+    height: 30px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 15px;
+    font-weight: bold;
+
+}
+
+.expenses-filter-select:hover,
+.expenses-filter-select:focus {
+    border: 1px solid green;
+}
+
+.expenses-filter_control {
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.expenses_filter_label {
+    color: white;
+
+}
