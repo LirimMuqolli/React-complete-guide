@@ -3,19 +3,19 @@ const expenses = [
         id:1,
         title:"Toilet Paper",
         amount:94.23,
-        date:new Date(2022, 9, 27)
+        date:new Date(2022, 4, 27)
     },
     {
         id:2,
         title:"Car Insurance",
         amount:92.23,
-        date:new Date(2020, 9, 27)
+        date:new Date(2020, 5, 27)
     },
     {
         id:3,
         title:"New TV",
         amount:941.23,
-        date:new Date(2019, 9, 27)
+        date:new Date(2019, 6, 27)
     },
     {
         id:4,

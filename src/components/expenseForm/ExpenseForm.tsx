@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./newExpense.css";
 
-const ExpenseForm = ({onSaveExpenseData}: any) => {
+const ExpenseForm = ({onSaveExpenseData,onCancel}: any) => {
   const [enteredTitle, setEnteredTitle] = useState<string>("");
   const [enteredAmount, setEnteredAmount] = useState<string>("");
   const [enteredDate, setEnteredDate] = useState<string>("");
@@ -71,7 +71,7 @@ const ExpenseForm = ({onSaveExpenseData}: any) => {
             type="date"
             id="date"
             value={enteredDate}
-            min="2022-01-01"
+            min="2019-01-01"
             max="2023-12-31"
             className="form-control"
             onChange={dateChangeHandler}
@@ -79,7 +79,8 @@ const ExpenseForm = ({onSaveExpenseData}: any) => {
         </div>
       </div>
       <div className="new-expense_actions">
-        <button className="new-expense_button">
+        <button type="button" onClick={onCancel} className="new-expense_button cancel">Cancel</button>
+        <button  type="submit" className="new-expense_button">
           Add Expense
         </button>
       </div>

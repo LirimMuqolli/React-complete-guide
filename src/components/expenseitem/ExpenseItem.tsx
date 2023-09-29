@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./ExpenseItem.css";
 import ExpenseDate from "../expenseDate/ExpenseDate";
 import ExpenseFilter from "../expenseFilter/ExpenseFilter";
+import ExpenseChart from "../chart/ExpenseChart";
 
 interface ExpenseDataObjectProps {
   id: number;
@@ -34,9 +35,11 @@ const ExpenseItem: React.FC<ExpenseData> = ({ expenseData }) => {
   return (
     <div className="expense-item-container">
       <ExpenseFilter selected={filteredYear} onChangeFilter={filterChangeHandler} />
+      <ExpenseChart expenses={filteredExpenses} />
       {filteredExpenses.length === 0  && (<p className="no-expenses-found">No expenses found.</p>)}
       {filteredExpenses.length > 0 && filteredExpenses.map((expense) => (
         <div key={expense.id} className="expense-item">
+    
           <ExpenseDate date={expense.date} />
           <div className="expense-item_description">
             <h2>{expense.title}</h2>
