@@ -22,11 +22,20 @@ const ExpenseItem: React.FC<ExpenseData> = ({ expenseData }) => {
   const filterChangeHandler = (selectedYear:any) => {
     setFilteredYear(selectedYear)
   }
+  const filterExpensesByYear = (expenses: ExpenseDataObjectProps[], year: string) => {
+    return expenses.filter((expense) => {
+      const expenseYear = expense.date.getFullYear().toString();
+      return expenseYear === year;
+    });
+  };
+
+  const filteredExpenses = filterExpensesByYear(expenseData, filteredYear);
 
   return (
     <div className="expense-item-container">
       <ExpenseFilter selected={filteredYear} onChangeFilter={filterChangeHandler} />
-      {expenseData.map((expense) => (
+      {filteredExpenses.length === 0  && (<p className="no-expenses-found">No expenses found.</p>)}
+      {filteredExpenses.length > 0 && filteredExpenses.map((expense) => (
         <div key={expense.id} className="expense-item">
           <ExpenseDate date={expense.date} />
           <div className="expense-item_description">
